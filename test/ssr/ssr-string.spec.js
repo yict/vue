@@ -1594,25 +1594,6 @@ describe('SSR: renderToString', () => {
 
     renderToString(vueInstance, err => done(err))
   })
-
-  it('undefined v-model with textarea', done => {
-    renderVmWithOptions({
-      render (h) {
-        return h('div', [
-          h('textarea', {
-            domProps: {
-              value: null
-            }
-          })
-        ])
-      }
-    }, result => {
-      expect(result).toContain(
-        '<div data-server-rendered="true"><textarea></textarea></div>'
-      )
-      done()
-    })
-  })
 })
 
 function renderVmWithOptions (options, cb) {
